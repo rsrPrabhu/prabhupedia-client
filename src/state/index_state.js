@@ -4,7 +4,8 @@ const initialState = {
     mode: "light",
     use: null,
     token: null,
-    posts: []
+    posts: [],
+    sideNav: "home",
 }
 
 export const authslice = createSlice({
@@ -39,6 +40,9 @@ export const authslice = createSlice({
                 }
             });
             state.posts = updatedPosts;
+        },
+        setNavigationData: (state, action) => {
+            state.sideNav = action.payload;
         }
     }
 });
@@ -49,7 +53,8 @@ export const {
     setLogout,
     setFriends,
     setPosts,
-    setPost
+    setPost,
+    setNavigationData
 } = authslice.actions;
 
 export default authslice.reducer;
